@@ -1,22 +1,22 @@
-/*
- * UCF COP 3330 Fall 2021 Application Assignment 2 Solution
- * Copyright 2021 Jonah Fernandez
- */
-
-
-
 package baseline;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
-public class InventoryManagementApplicationController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class InventoryManagementApplicationController implements Initializable {
 
     @FXML
     private Menu Loa;
@@ -31,13 +31,13 @@ public class InventoryManagementApplicationController {
     private Button deleteItem;
 
     @FXML
-    private TableColumn<?, ?> displayItemName;
+    private TableColumn<InventoryItem, String> displayItemName;
 
     @FXML
-    private TableColumn<?, ?> displayPrice;
+    private TableColumn<InventoryItem, String> displayPrice;
 
     @FXML
-    private TableColumn<?, ?> displaySerial;
+    private TableColumn<InventoryItem, String> displaySerial;
 
     @FXML
     private TextField enterPriceField;
@@ -61,57 +61,78 @@ public class InventoryManagementApplicationController {
     private ChoiceBox<?> sortByFilteredList;
 
     @FXML
-    void addItemToList(String item, String serial, String price) {
-        // Add item to new list
-        // contain item, sn, price in USD
-        // add on action
+    private TableView<InventoryItem> tableData;
+
+    @FXML
+    void addItemToList(ActionEvent event) {
 
     }
 
     @FXML
     void addNewItemFromField(ActionEvent event) {
-        // Add item from text field
-        // update new list
 
     }
 
     @FXML
     void addPriceFromField(ActionEvent event) {
-        // Add item from text field
-        // Also price to go with Item
-        // update new list
 
     }
 
     @FXML
     void addSerialNumberFromField(ActionEvent event) {
-        // Add item from text field
-        // Also add price to with item
-        // Also add serial number to text field
 
     }
 
     @FXML
     void clearItemFromList(ActionEvent event) {
-        // Clear item from list
-        // allow to clear all items if needed
 
     }
 
     @FXML
     void deleteItemFromList(ActionEvent event) {
-        // delete from current list
-        // delete one or multiple items from list
-        // add functionality later
 
     }
 
     @FXML
     void searchFilteredList(ActionEvent event) {
-        // code to sort lists by their specific items if needed
-        // show all
-
 
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initTable();
+    }
+
+    private void initTable() {
+        initCols();
+    }
+
+    private void initCols(){
+        displayItemName.setCellValueFactory(new PropertyValueFactory<>("Item Name"));
+        displayPrice.setCellValueFactory(new PropertyValueFactory<>("USD Price"));
+        displaySerial.setCellValueFactory(new PropertyValueFactory<>("Serial Number"));
+
+         editableCols();
+    }
+
+    private void editableCols(){
+
+        displayItemName.setCellFactory(TextFieldTableCell.forTableColumn());
+        displayItemName.setOnEditCommit(e-> {
+            e.getTableView().getItems().get(e.getTablePosition().getRow()).setDescription(e.getNewValue());
+        });
+
+        displaySerial.setCellFactory(TextFieldTableCell.forTableColumn());
+        displaySerial.setOnEditCommit(e-> {
+            e.getTableView().getItems().get(e.getTablePosition().getRow()).setDescription(e.getNewValue());
+        });
+
+        displayPrice.setCellFactory(TextFieldTableCell.forTableColumn());
+        displayPrice.setOnEditCommit(e-> {
+            e.getTableView().getItems().get(e.getTablePosition().getRow()).setDescription(e.getNewValue());
+        });
+
+    }
+
 
 }

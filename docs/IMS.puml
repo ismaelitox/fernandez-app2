@@ -1,0 +1,36 @@
+@startuml
+Class IVMApplication{
+}
+
+Class InventoryItem{
++ String description
++ String serial
++ String price
+
++ getDescription()
++ getSerial()
++ getPrice()
+
++ setDescription()
++ setSerial()
++ setPrice()
+}
+
+Class InventoryGUI{
+}
+
+Class IVMController{
+ + addItemToList()
+ + addNewItemFromField()
+ + addSerialNumberFromField()
+ + addPriceFromField()
+ + clearItemFromList()
+ + deleteItemFromList()
+ + searchFilteredList()
+
+}
+
+IVMApplication --> InventoryItem
+
+InventoryGUI --> InventoryItem
+@enduml
