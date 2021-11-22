@@ -16,11 +16,11 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="baseline.InventoryManagementApplicationController">
    <center>
-      <TableView editable="true" prefHeight="373.0" prefWidth="548.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableInfo" editable="true" prefHeight="373.0" prefWidth="548.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="displaySerial" prefWidth="75.0" text="Serial No." />
-          <TableColumn fx:id="displayItemName" prefWidth="75.0" text="Item Name" />
-            <TableColumn fx:id="displayPrice" prefWidth="75.0" text="Price (USD)" />
+          <TableColumn fx:id="serial_col" prefWidth="92.0" text="Serial No." />
+          <TableColumn fx:id="item_col" prefWidth="145.0" text="Item Name" />
+            <TableColumn fx:id="price_col" prefWidth="85.0" text="Price (USD)" />
         </columns>
       </TableView>
    </center>
@@ -53,7 +53,7 @@
             <TextField fx:id="serialNumberField" onAction="#addSerialNumberFromField" promptText="Enter Serial Number " GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="enterPriceField" onAction="#addPriceFromField" promptText="Enter Price USD" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="addItem" mnemonicParsing="false" onAction="#addItemToList" prefHeight="25.0" prefWidth="185.0" text="Add Item" />
-            <Button fx:id="clearItem" mnemonicParsing="false" onAction="#clearItemFromList" prefHeight="25.0" prefWidth="185.0" text="Clear Item" GridPane.rowIndex="1" />
+            <Button fx:id="clearList" mnemonicParsing="false" onAction="#clearItemFromList" prefHeight="25.0" prefWidth="185.0" text="Clear" GridPane.rowIndex="1" />
             <Button fx:id="deleteItem" mnemonicParsing="false" onAction="#deleteItemFromList" prefHeight="25.0" prefWidth="184.0" text="Delete Item" GridPane.rowIndex="2" />
          </children>
       </GridPane>

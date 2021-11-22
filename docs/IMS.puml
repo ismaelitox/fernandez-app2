@@ -17,6 +17,7 @@ Class InventoryItem{
 }
 
 Class InventoryGUI{
+
 }
 
 Class IVMController{
@@ -27,7 +28,17 @@ Class IVMController{
  + clearItemFromList()
  + deleteItemFromList()
  + searchFilteredList()
+ +initialize()
+ +initTable()
+ +initCol()
+ +editCols()
 
+}
+
+Class InputValidator{
+  + validItem()
+  + validInput()
+  + validSerial()
 }
 
 IVMApplication --> InventoryItem
