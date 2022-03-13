@@ -23,7 +23,7 @@ Validation was not fully implenmented but will be
 
 Thank you!
 
-https://youtu.be/uDdfIIaQiy0
+
 
 
 "I've decided to do things with love, for it is a more powerful, more sustainable force than fear." 
